@@ -3,27 +3,35 @@ from PyQt5.QtCore import QCoreApplication
 # from PyQt5.QtGui import *
 from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QApplication, QWidget, QMainWindow, QPushButton, QAction
-from PyQt5.uic.properties import QtGui
-
 
 class window(QMainWindow):
 
     def __init__(self):
         super(window, self).__init__()
-        self.setGeometry(50, 50, 500, 300)
+        self.setGeometry(50, 50, 1000, 700)
         self.setWindowTitle('SkyScraper')
         # self.setWindowIcon(QIcon('pic.png'))
 
-        extractAction = QAction('&Exit', self)
-        extractAction.setShortcut('Ctrl+Q')
-        extractAction.setStatusTip('leave the app')
-        extractAction.triggered.connect(self.close_application)
+        # File>>Options list are defined here
+
+        fileNew = QAction('&New', self)
+        fileNew.setShortcut('Ctrl+N')
+        fileNew.setStatusTip('leave the app')
+        fileNew.triggered.connect(self.close_application)
+
+        fileExit = QAction('&Exit', self)
+        fileExit.setShortcut('Ctrl+Q')
+        fileExit.setStatusTip('leave the app')
+        fileExit.triggered.connect(self.close_application)
 
         self.statusBar()
 
+        # File option
+
         mainMenu = self.menuBar()
         fileMenu = mainMenu.addMenu('&File')
-        fileMenu.addAction(extractAction)
+        fileMenu.addAction(fileNew)
+        fileMenu.addAction(fileExit)
 
         extractAction = QAction(QIcon('pic.png'), 'flee the scene', self)
         extractAction.triggered.connect(self.close_application)
@@ -37,7 +45,7 @@ class window(QMainWindow):
         btn = QPushButton('quit', self)
         btn.clicked.connect(self.close_application)
         btn.resize(btn.sizeHint())
-        btn.move(0, 100)
+        btn.move(500, 600)
 
         self.show()
 
@@ -52,3 +60,7 @@ if __name__ == "__main__":
         sys.exit(app.exec_())
 
 run()
+
+
+
+
