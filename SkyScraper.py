@@ -1,6 +1,8 @@
 import sys
 from PyQt5.QtWidgets import QMainWindow, QTextEdit, QAction, QApplication
 from PyQt5.QtGui import QIcon
+from urllib.request import urlopen
+from bs4 import BeautifulSoup
 
 
 class Example(QMainWindow):
@@ -10,8 +12,32 @@ class Example(QMainWindow):
         self.initUI()
 
     def initUI(self):
-        textEdit = QTextEdit()
-        self.setCentralWidget(textEdit)
+
+        '''
+        Scrap script
+        '''
+
+        myLink = "https://en.wikipedia.org/wiki/Particulates"
+
+        page = urlopen(myLink)
+
+        pageSource = BeautifulSoup(page, "lxml")
+        # print(pageSource)
+
+        # extract all tables
+        all_tables = pageSource.find_all('table')
+
+        # get the right table by defining its class
+        right_table = pageSource.find('table', class_='wikitable')
+        print(right_table)
+
+        '''
+        Scrap script
+        '''
+
+        # textEdit = QTextEdit()
+        # self.setCentralWidget(textEdit)
+
 
         exitAct = QAction(QIcon('pic.png'), 'Scrap', self)
         exitAct.setShortcut('Ctrl+Q')
@@ -20,19 +46,29 @@ class Example(QMainWindow):
 
         self.statusBar()
 
+        # Declaring the menu bar
         menubar = self.menuBar()
+
+        # File Menu
+
         fileMenu = menubar.addMenu('&File')
 
-        # exitAct is defined up *** PLEASE CHANGE THIS***
+        toolbar = self.addToolBar('Exit')
         fileMenu.addAction(exitAct)
 
-        toolbar = self.addToolBar('Exit')
-        toolbar.addAction(exitAct)
+        # Exit Menu
 
         editMenu = menubar.addMenu('Edit')
-        undoAct = QAction('Undo', self)
-        editMenu.addAction(undoAct)
 
+        toolbar.addAction(exitAct)
+        undoAct = QAction('Undo', self)
+
+        RedoAct = QAction('Redo', self)
+
+        editMenu.addAction(undoAct)
+        editMenu.addAction(RedoAct)
+
+        # exitAct is defined up *** PLEASE CHANGE THIS***
 
         self.setGeometry(300, 300, 350, 250)
         self.setWindowTitle('SkyScraper')
