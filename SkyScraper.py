@@ -1,66 +1,45 @@
 import sys
-from PyQt5.QtCore import QCoreApplication
-# from PyQt5.QtGui import *
+from PyQt5.QtWidgets import QMainWindow, QTextEdit, QAction, QApplication
 from PyQt5.QtGui import QIcon
-from PyQt5.QtWidgets import QApplication, QWidget, QMainWindow, QPushButton, QAction
 
-class window(QMainWindow):
 
+class Example(QMainWindow):
     def __init__(self):
-        super(window, self).__init__()
-        self.setGeometry(50, 50, 1000, 700)
-        self.setWindowTitle('SkyScraper')
-        # self.setWindowIcon(QIcon('pic.png'))
+        super().__init__()
 
-        # File>>Options list are defined here
+        self.initUI()
 
-        fileNew = QAction('&New', self)
-        fileNew.setShortcut('Ctrl+N')
-        fileNew.setStatusTip('leave the app')
-        fileNew.triggered.connect(self.close_application)
+    def initUI(self):
+        textEdit = QTextEdit()
+        self.setCentralWidget(textEdit)
 
-        fileExit = QAction('&Exit', self)
-        fileExit.setShortcut('Ctrl+Q')
-        fileExit.setStatusTip('leave the app')
-        fileExit.triggered.connect(self.close_application)
+        exitAct = QAction(QIcon('pic.png'), 'Scrap', self)
+        exitAct.setShortcut('Ctrl+Q')
+        exitAct.setStatusTip('Exit application')
+        exitAct.triggered.connect(self.close)
 
         self.statusBar()
 
-        # File option
+        menubar = self.menuBar()
+        fileMenu = menubar.addMenu('&File')
 
-        mainMenu = self.menuBar()
-        fileMenu = mainMenu.addMenu('&File')
-        fileMenu.addAction(fileNew)
-        fileMenu.addAction(fileExit)
+        # exitAct is defined up *** PLEASE CHANGE THIS***
+        fileMenu.addAction(exitAct)
 
-        extractAction = QAction(QIcon('pic.png'), 'flee the scene', self)
-        extractAction.triggered.connect(self.close_application)
+        toolbar = self.addToolBar('Exit')
+        toolbar.addAction(exitAct)
 
-        self.toolBar = self.addToolBar('Extraction')
-        self.toolBar.addAction(extractAction)
+        editMenu = menubar.addMenu('Edit')
+        undoAct = QAction('Undo', self)
+        editMenu.addAction(undoAct)
 
-        self.home()
 
-    def home(self):
-        btn = QPushButton('quit', self)
-        btn.clicked.connect(self.close_application)
-        btn.resize(btn.sizeHint())
-        btn.move(500, 600)
-
+        self.setGeometry(300, 300, 350, 250)
+        self.setWindowTitle('SkyScraper')
         self.show()
 
-    def close_application(self):
-        print('whooo so custom')
-        sys.exit()
 
-if __name__ == "__main__":
-    def run():
-        app = QApplication(sys.argv)
-        Gui = window()
-        sys.exit(app.exec_())
-
-run()
-
-
-
-
+if __name__ == '__main__':
+    app = QApplication(sys.argv)
+    ex = Example()
+    sys.exit(app.exec_())
