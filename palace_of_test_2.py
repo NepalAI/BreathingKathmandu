@@ -13,5 +13,6 @@ all_tables = pageSource.find_all('table')
 
 # get the right table by defining its class
 right_table = pageSource.find('table', class_='wikitable')
-# cleantext = BeautifulSoup(right_table).text
-print(right_table)
+x = format(right_table)
+cleantext = BeautifulSoup(right_table, "lxml").text
+print(cleantext)

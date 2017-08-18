@@ -27,7 +27,7 @@ def window():
     # get the right table by defining its class
     right_table = pageSource.find('table', class_='wikitable')
     # print(right_table)
-    cleantext = BeautifulSoup(right_table).text
+    cleantext = BeautifulSoup(right_table, "lxml").text
 
     # l1.setText(cleantext)
     print(cleantext)
