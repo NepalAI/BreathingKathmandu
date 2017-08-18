@@ -1,6 +1,6 @@
 import sys
-from PyQt5.QtWidgets import QMainWindow, QTextEdit, QAction, QApplication
-from PyQt5.QtGui import QIcon
+from PyQt5.QtWidgets import *
+from PyQt5.QtGui import *
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 
@@ -34,6 +34,10 @@ class Example(QMainWindow):
         '''
         Scrap script
         '''
+
+        l1 = QLabel()
+        l1.setText("Hello World")
+
 
         # textEdit = QTextEdit()
         # self.setCentralWidget(textEdit)
