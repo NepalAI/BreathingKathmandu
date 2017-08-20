@@ -27,12 +27,19 @@ class SeaofBTCapp(tk.Tk):
         frame = self.frames[cont]
         frame.tkraise()
 
+def qf(quickPrint):
+    print(quickPrint)
 
 class StartPage(tk.Frame):
+
     def __init__(self, parent, controller):
-        tk.Frame.__init__(self, parent)
-        label = tk.Label(self, text="SkyScraper", font=LARGE_FONT)
-        label.pack(pady=100, padx=100)
+        tk.Frame.__init__(self,parent)
+        label = tk.Label(self, text="Sky Scraper", font=LARGE_FONT)
+        label.pack(pady=10,padx=10)
+
+        button = tk.Button(self, text="Visit Page 1",
+                            command=lambda: qf("Check me out, I'm passing vars!"))
+        button.pack()
 
 
 app = SeaofBTCapp()
