@@ -2,10 +2,21 @@ import tkinter as tk
 
 LARGE_FONT = ("Verdana", 12)
 
+# Define SeaofBTCapp class
+# We're inheriting everything from the tk.Tk class.
 
 class SeaofBTCapp(tk.Tk):
+
+    # Init is short of initialize.
+    # Whatever you put in here is going to always run whenever the class is called upon.
+    # The other methods will only run when you specifically call upon them to run.
+
     def __init__(self, *args, **kwargs):
+
+        # https://stackoverflow.com/questions/36901/what-does-double-star-and-star-do-for-parameters
+        # https://stackoverflow.com/questions/287085/what-do-args-and-kwargs-mean#287101
         tk.Tk.__init__(self, *args, **kwargs)
+
         container = tk.Frame(self)
 
         container.pack(side="top", fill="both", expand=True)
