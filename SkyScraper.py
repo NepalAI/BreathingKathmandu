@@ -135,7 +135,7 @@ class PageThree(tk.Frame):
 
         tk.Frame.__init__(self, parent)
 
-        label = tk.Label(self, text="Pollution Chart", font=LARGE_FONT)
+        label = tk.Label(self, text="Realtime Pollution Chart", font=LARGE_FONT)
         label.pack(pady=10, padx=10)
 
         button1 = ttk.Button(self, text="Back to Home",
