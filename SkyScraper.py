@@ -15,10 +15,12 @@ f = Figure(figsize=(5,5), dpi=100)
 a = f.add_subplot(111)
 
 def animate(i):
+
     pullData = open('sample.txt','r').read()
     dataList = pullData.split('\n')
     xList = []
     yList = []
+
     for eachLine in dataList:
         if len(eachLine) > 1:
             x, y = eachLine.split(',')
@@ -70,6 +72,7 @@ class BreathingKathmandu(tk.Tk):
         frame = self.frames[cont]
         frame.tkraise()
 
+# We're defining the Start Page class where all the start page functions are executed.
 
 class StartPage(tk.Frame):
 
@@ -128,6 +131,7 @@ class PageTwo(tk.Frame):
                             command=lambda: controller.show_frame(PageOne))
         button2.pack()
 
+# class PageThree loads the page that has plots
 
 class PageThree(tk.Frame):
 
