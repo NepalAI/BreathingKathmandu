@@ -1,3 +1,2 @@
-matplotlib
-tkinter
+Django==2.1
 
