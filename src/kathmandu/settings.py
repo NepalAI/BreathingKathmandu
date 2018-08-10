@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'apps.interface',
-    'apps.deeplearing',
+    'apps.deeplearning',
 ]
 
 MIDDLEWARE = [

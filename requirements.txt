@@ -1,2 +1,6 @@
 Django==2.1
-
+h5py
+numpy
+scipy
+matplotlib
+pillow
