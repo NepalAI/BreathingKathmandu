@@ -41,6 +41,7 @@ INSTALLED_APPS = [
 
     # Third party
     'django_extensions',
+    'leaflet',
 
     # Django apps
     'apps.city',
