@@ -10,7 +10,7 @@ class IncidenceAdmin(LeafletGeoAdmin):
 
 
 class NepalAdmin(LeafletGeoAdmin):
-    list_display = ('district', 'region')
+    list_display = ('dist_id', 'district', 'zone_name', 'region', 'diss', 'xc', 'yc')
 
 
 admin.site.register(Instance, IncidenceAdmin)

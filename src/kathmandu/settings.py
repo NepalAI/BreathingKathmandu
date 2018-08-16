@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'leaflet',
 
     # Django apps
-    'apps.city',
+    'apps.nation', # Contains information of all districts
     'apps.deeplearning',
 
 ]
