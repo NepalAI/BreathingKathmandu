@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% load leaflet_tags %}
+{% load static %}
 
 {% block content %}
 
@@ -8,11 +9,22 @@
 {% leaflet_js %}
 {% leaflet_css %}
 
-<style>
+<style type="text/css">
 	#gis {height: 450px;}
 </style>
 
-{% leaflet_map "gis" %}
+<script type="text/javascript" src="http://akashadhikari.com.np/cdn/leaflet.ajax.js"></script>
+
+<script type="text/javascript">
+    function out_layers(map, options) {
+		var datasets = new L.GeoJSON.AJAX("http://localhost:8000/district_data", {
+
+		});
+		datasets.addTo(map);
+	}
+</script>
+
+{% leaflet_map "gis" callback="window.out_layers" %}
 
 <div class="container">
 
