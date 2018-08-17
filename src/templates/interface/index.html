@@ -1,8 +1,21 @@
 {% extends 'base.html' %}
 
+{% load leaflet_tags %}
+
 {% block content %}
 
+
+{% leaflet_js %}
+{% leaflet_css %}
+
+<style>
+	#gis {height: 450px;}
+</style>
+
+{% leaflet_map "gis" %}
+
 <div class="container">
+
 	<div class="row">
 		<div class="col">
 			<div class="chart">
@@ -15,6 +28,7 @@
 			</div>
 		</div>
 	</div>
+
 </div>
 
 {% endblock %}
