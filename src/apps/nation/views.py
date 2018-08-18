@@ -16,4 +16,5 @@ def district_data(request):
 
 
 def instance_data(request):
-	pass
+	instances = serialize('geojson', Instance.objects.all())
+	return HttpResponse(instances, content_type='json')

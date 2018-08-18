@@ -18,9 +18,20 @@
 <script type="text/javascript">
     function out_layers(map, options) {
 		var datasets = new L.GeoJSON.AJAX("http://localhost:8000/district_data", {
+			onEachFeature: function(feature, layer) {
+				layer.bindPopup(feature.properties.district.toString());
+			}
 
 		});
-		datasets.addTo(map);
+		var points = new L.GeoJSON.AJAX("http://localhost:8000/instance_data", {
+
+			onEachFeature: function(feature, layer) {
+				layer.bindPopup(feature.properties.name.toString());
+			}
+
+        });
+        datasets.addTo(map);
+		points.addTo(map);
 	}
 </script>
 
