@@ -18,6 +18,24 @@
 <script type="text/javascript">
     function out_layers(map, options) {
 		var datasets = new L.GeoJSON.AJAX("http://localhost:8000/district_data", {
+
+			style: function colors(feature){
+				switch(feature.properties.district) {
+					case 'Kathmandu':
+					    return {
+							color: 'red',
+							fillOpacity: 0.8
+						};
+					break;
+					case 'Morang':
+					    return {
+							color: 'green',
+							fillOpacity: 0.8
+						};
+					break;
+				}
+			},
+
 			onEachFeature: function(feature, layer) {
 				layer.bindPopup(feature.properties.district.toString());
 			}
