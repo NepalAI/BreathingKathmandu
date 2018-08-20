@@ -14,9 +14,15 @@
 </style>
 
 <script type="text/javascript" src="http://akashadhikari.com.np/cdn/leaflet.ajax.js"></script>
+<script type="text/javascript" src="http://akashadhikari.com.np/cdn/leaflet-groupedlayercontrol.min.css"></script>
+<script type="text/javascript" src="http://akashadhikari.com.np/cdn/leaflet-groupedlayercontrol.min.js"></script>
+
 
 <script type="text/javascript">
     function out_layers(map, options) {
+
+		var osm = "http://{s}.tile.openstreetmap.org/{z}{y}{x}.png";
+
 		var datasets = new L.GeoJSON.AJAX("http://localhost:8000/district_data", {
 
 			style: function colors(feature){
@@ -50,6 +56,19 @@
         });
         datasets.addTo(map);
 		points.addTo(map);
+
+		var baseLayers = {
+			"OSM": osm
+		}
+
+		var groupedOverlays = {
+			"Layers": {
+				"Districts": datasets,
+				"Instance": points
+			}
+		};
+
+        L.control.groupedLayers(baseLayers, groupedOverlays).addTo(map);
 	}
 </script>
 
