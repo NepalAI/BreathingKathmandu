@@ -13,15 +13,15 @@
 	#gis {height: 450px;}
 </style>
 
-<script type="text/javascript" src="http://akashadhikari.com.np/cdn/leaflet.ajax.js"></script>
-<script type="text/javascript" src="http://akashadhikari.com.np/cdn/leaflet-groupedlayercontrol.min.css"></script>
-<script type="text/javascript" src="http://akashadhikari.com.np/cdn/leaflet-groupedlayercontrol.min.js"></script>
+<link rel="stylesheet" type="text/css" href="http://akashadhikari.com.np/cdn/leaflet-groupedlayercontrol.min.css">
+<script type="text/javascript" src="http://akashadhikari.com.np/cdn/leaflet.ajax.js"> </script>
+<script type="text/javascript" src="http://akashadhikari.com.np/cdn/leaflet-groupedlayercontrol.min.js"> </script>
 
 
 <script type="text/javascript">
     function out_layers(map, options) {
 
-		var osm = "http://{s}.tile.openstreetmap.org/{z}{y}{x}.png";
+		var osm = 'http://{s}.tile.osm.org/{z}/{x}/{y}.png';
 
 		var datasets = new L.GeoJSON.AJAX("http://localhost:8000/district_data", {
 
@@ -30,13 +30,13 @@
 					case 'Kathmandu':
 					    return {
 							color: 'red',
-							fillOpacity: 0.8
+							fillOpacity: 0.5
 						};
 					break;
 					case 'Morang':
 					    return {
 							color: 'green',
-							fillOpacity: 0.8
+							fillOpacity: 0.5
 						};
 					break;
 				}
