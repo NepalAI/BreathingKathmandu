@@ -13,10 +13,14 @@
 	#gis {height: 450px;}
 </style>
 
-<link rel="stylesheet" type="text/css" href="http://akashadhikari.com.np/cdn/leaflet-groupedlayercontrol.min.css">
-<script type="text/javascript" src="http://akashadhikari.com.np/cdn/leaflet.ajax.js"> </script>
-<script type="text/javascript" src="http://akashadhikari.com.np/cdn/leaflet-groupedlayercontrol.min.js"> </script>
+<link rel="stylesheet" href="http://akashadhikari.com.np/cdn/leaflet-groupedlayercontrol.min.css">
+<script src="http://akashadhikari.com.np/cdn/leaflet.ajax.js"> </script>
+<script src="http://akashadhikari.com.np/cdn/leaflet-groupedlayercontrol.min.js"> </script>
 
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+<!-- <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script> -->
+<script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
 
 <script type="text/javascript">
     function out_layers(map, options) {
@@ -69,6 +73,12 @@
 		};
 
         L.control.groupedLayers(baseLayers, groupedOverlays).addTo(map);
+		// L.Routing.control({
+		// 	waypoints: [
+		// 		L.latLng(57.74, 11.94),
+		// 		L.latLng(57.6792, 11.949)
+		// 	]
+		// }).addTo(map);
 	}
 </script>
 
