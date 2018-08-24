@@ -1,0 +1,20 @@
+<!-- {% extends 'base.html' %}
+{% load leaflet_tags %}
+{% block content %}
+{% leaflet_js %}
+{% leaflet_css %}
+<style>
+	#gis {height: 450px;}
+</style>
+ {% leaflet_map "gis" %}
+ <script type="text/javascript" src="http://akashadhikari.com.np/cdn/leaflet.ajax.js"></script>
+ <script type="text/javascript">
+    function our_layers(map, options) {
+		var ds = new L.GeoJSON.AJAX("http://localhost:8000/conservation_data", {
+ 		});
+		ds.addTo(map);
+	}
+</script>
+ {% leaflet_map "gis" callback="window.our_layers" %}
+
+ {% endblock %} -->
